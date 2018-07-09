@@ -8,19 +8,21 @@ import EventPage from './components/EventPage';
 const RouterComponent = () => {
   return (
     <Router>
-      <Scene key='root'>
-        <Scene key='login' component={LogInForm} initial/>
-      </Scene>
-      <Scene key='main'>
-        <Scene
-          key='eventList'
-          component={EventList}
-          initial
-        />
-        <Scene
-          key='eventList'
-          component={EventPage}
-        />
+      <Scene key='root' hideNavBar>
+        <Scene key='auth'>
+          <Scene key='login' component={LogInForm} initial/>
+        </Scene>
+        <Scene key='main'>
+          <Scene
+            key='eventList'
+            component={EventList}
+            initial
+          />
+          <Scene
+            key='eventList'
+            component={EventPage}
+          />
+        </Scene>
       </Scene>
     </Router>
   )

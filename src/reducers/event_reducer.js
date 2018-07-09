@@ -1,7 +1,7 @@
 import {
   EVENT_FETCH,
   EVENT_FETCH_SUCCESS
-} from '../../actions/types';
+} from '../actions/types';
 
 const defaultState = {
   byId: {},

@@ -2,7 +2,7 @@ import {
   LOADING_START,
   LOADING_FINISH,
   LOGIN_USER_FAIL
-} from '../../actions/types';
+} from '../actions/types';
 
 const defaultState = {
   loading: false,

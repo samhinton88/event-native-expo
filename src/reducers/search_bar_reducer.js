@@ -1,6 +1,6 @@
 import {
   SEARCH_VALUE_CHANGED
-} from '../../actions/types';
+} from '../actions/types';
 
 const defaultState = {
   value: ''
