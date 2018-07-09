@@ -26,6 +26,7 @@ export const passwordChanged = (text) => {
 }
 
 export const loginUser = ({email, password}) => async dispatch => {
+  console.log('loginUser fired')
   dispatch({type: LOGIN_USER })
 
   const res = await axios.get(`${BASE_URL}/api/users`, {email, password})

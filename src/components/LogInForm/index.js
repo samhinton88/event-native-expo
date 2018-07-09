@@ -62,7 +62,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onEmailChange: val => dispatch(emailChanged(val)),
     onPasswordChange: val => dispatch(passwordChanged(val)),
-    onButtonPress: () => dispatch(loginUser)
+    onButtonPress: () => dispatch(loginUser())
   }
 }
 
