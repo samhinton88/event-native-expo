@@ -9,5 +9,9 @@ export const SEARCH_VALUE_CHANGED = 'search_value_changed';
 export const EVENT_FETCH = 'event_fetch';
 export const EVENT_FETCH_SUCCESS = 'event_fetch_success';
 
+export const INTEREST_REGISTER = 'interest_register';
+
+export const EVENT_SELECT = 'event_select';
+
 export const LOADING_START = 'loading_start';
 export const LOADING_FINISH = 'loading_finish';

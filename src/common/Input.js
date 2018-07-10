@@ -1,15 +1,17 @@
 import React from 'react';
 import { TextInput, View, Text } from 'react-native';
 
-const Input = ({ label, value, onChangeText, placeholder, secureTextEntry }) => {
+const Input = ({ label, value, onChangeText, placeholder, secureTextEntry, noLabel }) => {
   const { inputStyle, labelStyle, containerStyle } = styles;
+
+  const centerStyle = noLabel ? { textAlign: 'center'} : null
 
   return (
     <View style={containerStyle}>
-      <Text style={labelStyle}>{label}</Text>
+      {noLabel ? null : <Text style={labelStyle}>{label}</Text>}
       <TextInput
         secureTextEntry={secureTextEntry}
-        style={inputStyle}
+        style={[inputStyle, centerStyle ]}
         value={value}
         onChangeText={onChangeText}
         autoCorrect={false}

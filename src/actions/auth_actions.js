@@ -26,11 +26,13 @@ export const passwordChanged = (text) => {
 }
 
 export const loginUser = ({email, password}) => async dispatch => {
-  console.log('loginUser fired')
+  console.log('loginUser fired with', email, password)
   dispatch({type: LOGIN_USER })
 
-  const res = await axios.get(`${BASE_URL}/api/users`, {email, password})
+  const res = await axios.post(`${BASE_URL}/api/userlogin`, {email, password})
     .catch((err) => loginUserFail(dispatch));
+
+  if(!res) { return loginUserFail(dispatch)}
 
   loginUserSuccess(dispatch, res.data)
 }

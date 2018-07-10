@@ -19,6 +19,18 @@ class LogInForm extends Component {
     )
   }
 
+  onButtonPress = () => {
+    const { email, password } = this.props;
+
+    this.props.loginUser({ email, password })
+  }
+
+  renderError = () => {
+    if(!this.props.loginError) { return}
+
+    return <Text>{this.props.loginError}</Text>
+  }
+
   render() {
     return (
       <Card>
@@ -39,6 +51,7 @@ class LogInForm extends Component {
             onChangeText={this.props.onPasswordChange}
           />
         </CardSection>
+          {this.renderError()}
         <CardSection>
           {this.renderButton()}
         </CardSection>
@@ -48,13 +61,14 @@ class LogInForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { email, password, error, loading } = state.auth;
+  const { email, password } = state.auth;
+  const { loading, loginError } = state.UX;
 
   return {
-    email: email,
-    password: password,
-    error: error,
-    loading: loading
+    email,
+    password,
+    loginError,
+    loading
   }
 }
 
@@ -62,7 +76,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onEmailChange: val => dispatch(emailChanged(val)),
     onPasswordChange: val => dispatch(passwordChanged(val)),
-    onButtonPress: () => dispatch(loginUser())
+    loginUser: (data) => dispatch(loginUser(data))
   }
 }
 
